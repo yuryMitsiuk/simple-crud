@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ItemRepo {
     Item save(Item item);
-    void delete(int id);
+    boolean delete(int id);
     Item get(int id);
     List<Item> getAll();
 }

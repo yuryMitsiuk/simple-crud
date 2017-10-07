@@ -4,29 +4,29 @@ import java.time.LocalDateTime;
 
 public class Item extends NamedEntity {
 
-    private LocalDateTime dateDelivery;
+    private LocalDateTime delivery;
 
     private Integer quantity;
 
     private boolean enable;
 
-    public Item(Integer id, String title, LocalDateTime dateDelivery, Integer quantity, boolean enable) {
+    public Item(Integer id, String title, LocalDateTime delivery, Integer quantity, boolean enable) {
         super(id, title);
-        this.dateDelivery = dateDelivery;
+        this.delivery = delivery;
         this.quantity = quantity;
         this.enable = enable;
     }
 
-    public Item(String title, LocalDateTime dateDelivery, Integer quantity, boolean enable) {
-        this(null, title, dateDelivery, quantity, enable);
+    public Item(String title, LocalDateTime delivery, Integer quantity, boolean enable) {
+        this(null, title, delivery, quantity, enable);
     }
 
-    public LocalDateTime getDateDelivery() {
-        return dateDelivery;
+    public LocalDateTime getDelivery() {
+        return delivery;
     }
 
-    public void setDateDelivery(LocalDateTime dateDelivery) {
-        this.dateDelivery = dateDelivery;
+    public void setDelivery(LocalDateTime delivery) {
+        this.delivery = delivery;
     }
 
     public Integer getQuantity() {
@@ -49,7 +49,7 @@ public class Item extends NamedEntity {
     public String toString() {
         return "Item { id = "+getId()+
                 ", title = " + getTitle() +
-                ", dateDelivery = " + dateDelivery +
+                ", dateDelivery = " + delivery +
                 ", quantity = " + quantity +
                 ", enable = " + enable +" }";
     }
