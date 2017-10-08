@@ -60,6 +60,6 @@ public class ItemRepoImpl implements ItemRepo {
 
     @Override
     public List<Item> getAll() {
-        return jdbcTemplate.query("SELECT * FROM items WHERE id=? ORDER BY delivery DESC", ROW_MAPPER);
+        return jdbcTemplate.query("SELECT * FROM items ORDER BY delivery DESC", ROW_MAPPER);
     }
 }

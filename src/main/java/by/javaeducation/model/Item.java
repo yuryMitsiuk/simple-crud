@@ -10,6 +10,9 @@ public class Item extends NamedEntity {
 
     private boolean enable;
 
+    public Item() {
+    }
+
     public Item(Integer id, String title, LocalDateTime delivery, Integer quantity, boolean enable) {
         super(id, title);
         this.delivery = delivery;
