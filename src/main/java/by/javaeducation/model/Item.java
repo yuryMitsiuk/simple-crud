@@ -1,13 +1,29 @@
 package by.javaeducation.model;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
+
+@NamedQueries({
+        @NamedQuery(name = Item.DELETE, query = "DELETE FROM Item i WHERE i.id=:id"),
+        @NamedQuery(name = Item.ALL, query = "SELECT i FROM Item i ORDER BY i.delivery DESC")
+})
+@Entity
+@Table(name = "items")
 public class Item extends NamedEntity {
 
+    public static final String DELETE = "Item.delete";
+    public static final String ALL = "Item.all";
+
+    @Column(name = "delivery", columnDefinition = "timestamp default now()")
+    @NotNull
     private LocalDateTime delivery;
 
+    @Column(name = "quantity", nullable = false)
     private Integer quantity;
 
+    @Column(name = "enabled", columnDefinition = "bool default false")
     private boolean enable;
 
     public Item() {

@@ -5,7 +5,7 @@ CREATE SEQUENCE global_seq START 10000;
 
 CREATE TABLE items (
   id        INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
-  title     VARCHAR(45),
+  title     VARCHAR(45) NOT NULL,
   delivery  TIMESTAMP DEFAULT now(),
   quantity  INTEGER NOT NULL,
   enabled   BOOLEAN DEFAULT FALSE

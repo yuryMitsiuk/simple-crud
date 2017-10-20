@@ -6,7 +6,7 @@
 
     <context:annotation-config/>
 
-    <context:component-scan base-package="by.javaeducation.**.repository"/>
+    <context:component-scan base-package="by.javaeducation.**.repository.jpa"/>
     <context:component-scan base-package="by.javaeducation.**.service"/>
     <context:component-scan base-package="by.javaeducation.**.web"/>
 

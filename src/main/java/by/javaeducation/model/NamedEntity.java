@@ -1,7 +1,17 @@
 package by.javaeducation.model;
 
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
+
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
 public abstract class NamedEntity extends BaseEntity {
 
+    @NotBlank
+    @Length(min = 5)
+    @Column(name = "title", nullable = false)
     protected String title;
 
     public NamedEntity() {
