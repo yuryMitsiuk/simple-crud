@@ -5,6 +5,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,15 +19,14 @@ import java.util.Objects;
 
 public class ItemServlet extends HttpServlet {
 
-    private Logger LOG = LoggerFactory.getLogger(ItemServlet.class);
-    private ConfigurableApplicationContext springContext;
+    private WebApplicationContext wac;
     private ItemRestController controller;
 
     @Override
     public void init() throws ServletException {
         super.init();
-        springContext = new ClassPathXmlApplicationContext("spring/spring-app.xml", "spring/spring-db.xml");
-        controller = springContext.getBean(ItemRestController.class);
+        wac = WebApplicationContextUtils.getRequiredWebApplicationContext(getServletContext());
+        controller = wac.getBean(ItemRestController.class);
     }
 
     @Override
@@ -71,11 +72,5 @@ public class ItemServlet extends HttpServlet {
     private int getId(HttpServletRequest request) {
         String paramId = Objects.requireNonNull(request.getParameter("id"));
         return Integer.valueOf(paramId);
-    }
-
-    @Override
-    public void destroy() {
-        springContext.close();
-        super.destroy();
     }
 }
