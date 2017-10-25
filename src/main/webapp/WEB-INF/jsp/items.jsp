@@ -9,14 +9,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
-<head>
-    <title>Items</title>
-</head>
+<jsp:include page="../fragments/header.jsp"/>
 <body>
-<jsp:include page="fragments/bodyHeader.jsp"/>
-    <a href="/index.html">Home</a>
+<jsp:include page="../fragments/bodyHeader.jsp"/>
     <br>
-    <a href="items?action=create">Create</a>
+    <a href="items/create">Create</a>
     <table border="1" cellpadding="8" cellspacing="0">
         <thead>
         <tr>
@@ -34,11 +31,11 @@
                 <td>${item.delivery}</td>
                 <td>${item.quantity}</td>
                 <td>${item.enable}</td>
-                <td><a href="items?action=update&id=${item.id}">Update</a></td>
-                <td><a href="items?action=delete&id=${item.id}">Delete</a></td>
+                <td><a href="items/update?id=${item.id}">Update</a></td>
+                <td><a href="items/delete?id=${item.id}">Delete</a></td>
             </tr>
         </c:forEach>
     </table>
-<jsp:include page="fragments/footer.jsp"/>
+<jsp:include page="../fragments/footer.jsp"/>
 </body>
 </html>

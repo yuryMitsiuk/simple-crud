@@ -4,6 +4,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <base href="${fn:substring(url, 0, fn:length(url) - fn:length(pageContext.request.requestURI))}${pageContext.request.contextPath}/" />
     <title>Simple CRUD App</title>
     <link rel="stylesheet" href="resources/css/style.css" >
 </head>
