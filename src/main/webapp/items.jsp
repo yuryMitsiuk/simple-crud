@@ -13,6 +13,7 @@
     <title>Items</title>
 </head>
 <body>
+<jsp:include page="fragments/bodyHeader.jsp"/>
     <a href="/index.html">Home</a>
     <br>
     <a href="items?action=create">Create</a>
@@ -38,5 +39,6 @@
             </tr>
         </c:forEach>
     </table>
+<jsp:include page="fragments/footer.jsp"/>
 </body>
 </html>
