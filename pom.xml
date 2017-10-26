@@ -15,6 +15,7 @@
         <hibernate.version>5.2.10.Final</hibernate.version>
         <hibernate-validator.version>5.4.1.Final</hibernate-validator.version>
         <tomcat.version>8.5.20</tomcat.version>
+        <jackson-json.version>2.9.0</jackson-json.version>
     </properties>
 
     <groupId>by.javaeducation</groupId>
@@ -143,6 +144,23 @@
             <artifactId>tomcat-jdbc</artifactId>
             <version>8.5.20</version>
             <scope>provided</scope>
+        </dependency>
+
+        <!--JSON-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson-json.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-hibernate5</artifactId>
+            <version>${jackson-json.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>${jackson-json.version}</version>
         </dependency>
 
         <!-- Tests -->

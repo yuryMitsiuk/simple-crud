@@ -1,5 +1,8 @@
 package by.javaeducation.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
@@ -29,7 +32,12 @@ public class Item extends NamedEntity {
     public Item() {
     }
 
-    public Item(Integer id, String title, LocalDateTime delivery, Integer quantity, boolean enable) {
+    @JsonCreator
+    public Item(@JsonProperty("id") Integer id,
+                @JsonProperty("title") String title,
+                @JsonProperty("delivery") LocalDateTime delivery,
+                @JsonProperty("quantity") Integer quantity,
+                @JsonProperty("enable") boolean enable) {
         super(id, title);
         this.delivery = delivery;
         this.quantity = quantity;
