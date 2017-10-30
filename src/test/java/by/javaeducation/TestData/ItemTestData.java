@@ -32,10 +32,10 @@ public class ItemTestData {
         return new Item(ID_ITEM_1, "UpdatedItem", of(2017, Month.OCTOBER, 24, 11, 00), 15, false);
     }
 
-    public static final BeanMatcher<Item> MATCHER = new BeanMatcher<>(
-            ((expected, actual) -> expected == actual ||
+    public static final BeanMatcher<Item> MATCHER = BeanMatcher.of(Item.class,
+            (expected, actual) -> expected == actual ||
                     (
-                            Objects.equals(expected.getId(), actual.getId())) &&
+                            Objects.equals(expected.getId(), actual.getId()) &&
                             Objects.equals(expected.getTitle(), actual.getTitle()) &&
                             Objects.equals(expected.getDelivery(), actual.getDelivery()) &&
                             Objects.equals(expected.getQuantity(), actual.getQuantity()) &&
